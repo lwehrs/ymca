@@ -4,8 +4,10 @@
 
     <?php
         if(isset($_SESSION['useruid'])){
-            echo '<h4 class="text-center">Welcome '.$_SESSION['username'].'</h4>';
-            echo "<p class='text-center'>User Role: ".strtoupper($_SESSION['userrole'])."</p>";
+            echo '<h4 class="text-center">Welcome '.$_SESSION['username'].'!</h4>';
+            echo "<p class='text-center'>User Role: ".strtoupper($_SESSION['userrole'])."</p><br>";
+        } else{
+            echo '<h4 class="text-center">Welcome Guest!</h4><br>';
         }
     ?>
 

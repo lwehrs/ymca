@@ -128,7 +128,7 @@ function emptyInputProgram($progName, $progType, $startDate, $endDate, $location
     return $result;
 }
 
-function createProgram($conn, $progName, $progType, $startDate, $endDate, $location, $description, $price, $participants){
+function createProgram($conn, $progName, $progType, $startDate, $endDate, $location, $description, $requirements, $price, $participants){
     // $sql = "INSERT INTO programs (PROG_NAME, PROG_TYPE, START_DATE, END_DATE, LOCATION, DESCRIPTION, PRICE, PARTICIPANTS) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
     // $stmt = mysqli_stmt_init($conn);
 
@@ -142,7 +142,7 @@ function createProgram($conn, $progName, $progType, $startDate, $endDate, $locat
     // mysqli_stmt_execute($stmt);
     // mysqli_stmt_close($stmt);
     
-    $sql = "INSERT INTO programs (PROG_NAME, PROG_TYPE, START_DATE, END_DATE, LOCATION, DESCRIPTION, PRICE, PARTICIPANTS) VALUES ('$progName', '$progType', '$startDate', '$endDate', '$location', '$description', '$price', '$participants');";
+    $sql = "INSERT INTO programs (PROG_NAME, PROG_TYPE, START_DATE, END_DATE, LOCATION, DESCRIPTION, REQUIREMENTS, PRICE, PARTICIPANTS) VALUES ('$progName', '$progType', '$startDate', '$endDate', '$location', '$description', '$requirements', '$price', '$participants');";
 
     if(mysqli_query($conn, $sql)){
         echo "New program created.";

@@ -2,7 +2,7 @@
 <?php
     include_once 'includes/dbh.inc.php';
 
-    $sql = "SELECT * FROM programs;";
+    $sql = "SELECT * FROM programs ORDER BY START_DATE;";
     $result = mysqli_query($conn, $sql);
 ?>
 
@@ -35,10 +35,13 @@
             </thead>
             
             <?php while($row = mysqli_fetch_assoc($result)): ?>
-                <td><?php echo $row['PROG_NAME']; ?></td>
-                <td><?php echo $row['PROG_TYPE']; ?></td>
-                <td><?php echo $row['START_DATE']; ?></td>
-                <td><?php echo $row['END_DATE']; ?></td>
+                <tr>
+                    <td><?php echo $row['PROG_NAME']; ?></td>
+                    <td><?php echo $row['PROG_TYPE']; ?></td>
+                    <td><?php echo $row['START_DATE']; ?></td>
+                    <td><?php echo $row['END_DATE']; ?></td>
+                </tr>
+                
             <?php endwhile ?>
         </table>
     </div>

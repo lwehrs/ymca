@@ -25,18 +25,18 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="index.php">Home</a>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Programs</a>
-                    </li>
                     <?php
                         if(isset($_SESSION['useruid'])){
                             if($_SESSION['userrole'] == "admin" || $_SESSION['userrole'] == "staff"){
+                                echo '<li class="nav-item active"><a class="nav-link" href="program.php">Programs</a></li>';
                                 echo '<li class="nav-item active"><a class="nav-link" href="admin.php">Admin Tools</a></li>';
                             } else {
                                 echo '<li class="nav-item active"><a class="nav-link" href="profile.php">Profile</a></li>';
+                                echo '<li class="nav-item active"><a class="nav-link" href="program-view.php">Programs</a></li>';
                             }
                             echo '<li class="nav-item active"><a class="nav-link" href="includes/logout.inc.php">Log Out</a></li>';
                         } else {
+                            echo '<li class="nav-item active"><a class="nav-link" href="program-view.php">Programs</a></li>';
                             echo '<li class="nav-item active"><a class="nav-link" href="signup.php">Sign Up</a></li>';
                             echo '<li class="nav-item active"><a class="nav-link" href="login.php">Login</a></li>';
                         }

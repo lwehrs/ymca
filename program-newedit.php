@@ -17,7 +17,7 @@
     <form action="includes/program.inc.php" method="POST">
         <div class="form-group">
             <label for="prog-name">Name</label>
-            <input type="text" name="prog-name" placeholder="" class="form-control"><br>
+            <input type="text" name="prog-name" placeholder="" class="form-control">
             <label for="prog-type">Program Type</label>
             <select name="prog-type" class="form-control">
                 <option value=""></option>
@@ -27,20 +27,25 @@
                 <option value="special-event">Special Event</option>
             </select>
             <label for="start-date">Start Date</label>
-            <input type="date" name="start-date" placeholder="" class="form-control"><br>
+            <input type="date" name="start-date" placeholder="" class="form-control">
             <label for="end-date">End Date</label>
-            <input type="date" name="end-date" placeholder="" class="form-control"><br>
+            <input type="date" name="end-date" placeholder="" class="form-control">
             <label for="location">Location</label>
-            <input type="text" name="location" placeholder="" class="form-control"><br>
+            <input type="text" name="location" placeholder="" class="form-control">
             <label for="description">Description</label>
-            <textarea name="description" placeholder="" class="form-control"></textarea><br>
+            <textarea name="description" placeholder="" class="form-control"></textarea>
+            <label for="requirements">Requirements</label>
+            <textarea name="requirements" placeholder="" class="form-control"></textarea>
             <label for="price">Price</label>
-            <input type="text" name="price" placeholder="" class="form-control"><br>
+            <input type="text" name="price" placeholder="" class="form-control">
             <label for="participants">Participants (MAX)</label>
-            <input type="number" name="participants" placeholder="" class="form-control" min="1" step="1" value="0"><br>
+            <input type="number" name="participants" placeholder="" class="form-control" min="1" step="1" value="0">
         </div>
-        <button type="submit" name="save-prog" class="btn btn-success">Save</button>
-        <a href="program.php" class="btn btn-danger">Cancel</a>
+        <div class="text-center">
+            <button type="submit" name="save-prog" class="btn btn-success">Save</button>
+            <a href="program.php" class="btn btn-danger">Cancel</a>
+        </div>
+        <br>
     </form>
 </div>
 
