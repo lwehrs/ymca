@@ -116,3 +116,40 @@ function loginUser($conn, $username, $pass){
         exit();
     }
 }
+
+function emptyInputProgram($progName, $progType, $startDate, $endDate, $location, $description, $price, $participants){
+    $result;
+    if(empty($progName) || empty($progType) || empty($startDate) || empty($endDate) || empty($location) || empty($description) || empty($price) || empty($participants)){
+        $result = true;
+    }else{
+        $result = false;
+    }
+
+    return $result;
+}
+
+function createProgram($conn, $progName, $progType, $startDate, $endDate, $location, $description, $price, $participants){
+    // $sql = "INSERT INTO programs (PROG_NAME, PROG_TYPE, START_DATE, END_DATE, LOCATION, DESCRIPTION, PRICE, PARTICIPANTS) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+    // $stmt = mysqli_stmt_init($conn);
+
+
+    // if(!mysqli_stmt_prepare($stmt, $sql)){
+    //     header('location: ../signup.php?error=stmtfailed');
+    //     exit();
+    // }
+
+    // mysqli_stmt_bind_param($stmt, 'ssssssss', $progName, $progType, $startDate, $endDate, $location, $description, $price, $participants);
+    // mysqli_stmt_execute($stmt);
+    // mysqli_stmt_close($stmt);
+    
+    $sql = "INSERT INTO programs (PROG_NAME, PROG_TYPE, START_DATE, END_DATE, LOCATION, DESCRIPTION, PRICE, PARTICIPANTS) VALUES ('$progName', '$progType', '$startDate', '$endDate', '$location', '$description', '$price', '$participants');";
+
+    if(mysqli_query($conn, $sql)){
+        echo "New program created.";
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    }
+    mysqli_close($conn);
+    header("location: ../program.php");
+    exit();
+}

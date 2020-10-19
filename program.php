@@ -1,4 +1,10 @@
 <?php include 'includes/header.php'; ?>
+<?php
+    include_once 'includes/dbh.inc.php';
+
+    $sql = "SELECT * FROM programs;";
+    $result = mysqli_query($conn, $sql);
+?>
 
 <div class="container mt-3">
     <?php
@@ -15,26 +21,26 @@
     ?>
 
     <div class="row justify-content-center">
-        <div class="col-sm-4">
-            <div class="card">
-                <img class="card-img-top" src="img/yoga-class-2.jpg" alt="Classes">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Create/Edit Program</h5>
-                    <p class="card-text">Create a brand new program or edit an existing one.</p>
-                    <a href="#" class="btn btn-primary">Find Classes</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4 admin">
-            <div class="card">
-                <img class="card-img-top" src="img/admin-2.jpg" alt="Admin">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Admin Tools</h5>
-                    <p class="card-text">Administrators and staff members can edit accounts and programs here.</p>
-                    <a href="#" class="btn btn-primary">Admin Tools</a>
-                </div>
-            </div>
-        </div>
+
+        <a href="program-newedit.php" class="btn btn-success btn-block">New Program</a>
+
+        <table class='table'>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                </tr>
+            </thead>
+            
+            <?php while($row = mysqli_fetch_assoc($result)): ?>
+                <td><?php echo $row['PROG_NAME']; ?></td>
+                <td><?php echo $row['PROG_TYPE']; ?></td>
+                <td><?php echo $row['START_DATE']; ?></td>
+                <td><?php echo $row['END_DATE']; ?></td>
+            <?php endwhile ?>
+        </table>
     </div>
 </div>
 
